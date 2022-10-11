@@ -1,0 +1,6 @@
+---
+title: "Introduction to Quarto"
+author: "Selina Baldauf"
+format: revealjs
+editor: visual
+---
