@@ -145,7 +145,7 @@ execute:
 
 **Step 3: Add a github action**
 
-- Create a directory `.github`
+- Create a directory `.github/workflows`
 - Add `publish.yml` from [here](https://quarto.org/docs/publishing/github-pages.html#github-action)
 
 
