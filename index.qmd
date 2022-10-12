@@ -24,6 +24,8 @@ To continue learning, I recommend, checking out the following resources:
 
 - [Quarto introduction workshop](https://www.youtube.com/watch?v=yvi5uXQMvu4) on Youtube
 
+- [A curated collection of resources](https://github.com/mcanouil/awesome-quarto#featured-new-releases)
+
 ## Preparation
 
 To follow the whole course, you need to do [some preparation work](preparations.qmd).
