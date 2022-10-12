@@ -1,5 +1,132 @@
 ---
 title: "Publishing Quarto documents"
-format: revealjs
-editor: visual
+subtitle: "A crashcourse on reproducible documents, presentations and websites"
+format: 
+  revealjs:
+    footer: "Selina Baldauf - Theoretical Ecology"
+    highlight-style: printing
+    mainfont: Cabinet Grotesk
+    slide-number: true
+    show-slide-number: all
+    incremental: true
+    code-line-numbers: false
+editor: source
+execute: 
+  echo: false
+  eval: true
 ---
+
+## Quarto pub
+
+- Publishing service provided by R Studio free of charge
+- For Websites but also single documents and presentations
+- Content is always public
+- Requirments:
+
+    - An account
+    - Quarto cli installed
+
+## Quarto pub
+
+Publish to Quarto pub from the terminal.
+
+- Open the terminal in R Studio (next to the console), and you should already be inside the project
+
+  - If not switch directories with `cd`
+
+**Publish a single document**
+
+``` bash
+quarto publish quarto-pub my_document.qmd
+```
+
+**Publish the whole project** (e.g. the website)
+
+``` bash
+quarto publish quarto-pub
+```
+
+## Quarto pub
+
+- The first time, the publish command will prompt you to log into your account
+- After publishing, your project will contain a `_publish.yml` file, that looks like this:
+
+```yml
+- source: project
+  quarto-pub:
+    - id: "5f3abafe-68f9-4c1d-835b-9d668b892001"
+      url: "https://njones.quarto.pub/blog"
+```
+
+## Github pages
+
+- Publish a website for every Github repository
+- Content is public
+- Only complete Websites not single documents
+
+- Requiremnts:
+  - Github account
+  - Projects needs to be a repository on Github
+  
+## Github pages
+
+**Step 1: Make your project a git repo**
+
+- Call `usethis::use_git()`
+- Commit all your files
+
+**Step 2: Make your project a github repo**
+
+- Call `usethis::use_github()`
+- Push your project to github
+
+## Option 1: Use `/docs` directory
+
+**Step 3: Render your website to `/docs`**
+
+- Open `_quarto.yaml` and specify the output directory for the webite to `docs` (by default it's `_site`)
+
+```yaml
+project:
+  type: website
+  output-dir: docs
+```
+
+- Now build the website again
+- Push the docs folder to Github:
+
+```bash
+git add docs/*
+git commit -m "render website"
+git push
+```
+
+## Option 1: Use `/docs` directory
+
+**Step 4: Turn on Github pages**
+
+- Go to your Github repo
+- Click on Settings on top:
+
+```{r}
+#| out-width: "50%"
+knitr::include_graphics("images/4_publish/github_settings.jpg")
+```
+
+## Option 1: Use `/docs` directory
+
+- Scroll down to `Pages` and select that the website should be built from the `/docs` folder of the master branch
+
+```{r}
+#| out-width: "50%"
+knitr::include_graphics("images/4_publish/github_pages_docs.jpg")
+```
+
+## Option 2: Use github actions
+
+- Github actions can be defined to run every time you push something
+- Trigger Github action to render and publish your website to github pages.
+
+**Step 1: Add `_site` to `.gitignore`**
+
+

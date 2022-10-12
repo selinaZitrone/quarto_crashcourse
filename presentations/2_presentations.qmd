@@ -1,5 +1,41 @@
 ---
 title: "Presentations with Quarto"
-format: revealjs
-editor: visual
+subtitle: "A crashcourse on reproducible documents, presentations and websites"
+format: 
+  revealjs:
+    footer: "Selina Baldauf - Theoretical Ecology"
+    highlight-style: printing
+    mainfont: Cabinet Grotesk
+    slide-number: true
+    show-slide-number: all
+    incremental: true
+    code-line-numbers: false
+editor: source
+execute: 
+  echo: false
+  eval: true
 ---
+
+## Presentations
+
+Main presentation formats:
+
+-   Reveal.js: HTML presentation run from the browser
+
+-   Powerpoint/Open office
+
+-   Beamer presentation: PDF
+
+Some elements are compatible, but Reveal.js is the most powerful and offers options the others don't.
+
+## Resources
+
+Check here for a reference to all options for
+
+-   [Revealjs presentations](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+
+-   [Powerpoint presentations](Powerpoint presentations)
+
+-   [Beamer Presentation](https://quarto.org/docs/reference/formats/presentations/beamer.html)
+
+Find a general guide on presentations with Quarto [here](https://quarto.org/docs/presentations/).

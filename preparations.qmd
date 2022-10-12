@@ -1,0 +1,93 @@
+---
+toc-depth: 4
+---
+
+## Preparations for the R Markdown / Quarto crash course
+
+Please prepare everything from the list below otherwise you cannot follow the workshop. Some sections can be skipped by some people that already have certain things installed. If you have any questions or problems, please let me know!
+
+#### 0. info For people without r and R studio
+
+I assume, that you have R and R Studio already installed. If this is not the case, you can follow the instructions from [here](https://techvidvan.com/tutorials/install-r/#install-r-windows) to install them. You can also use Quarto without R and R Studio (e.g. if you use Python or if you want to use VS code). However, the setup is a bit different then. So for the workshop, please use R and R Studio, if you want to switch later on let me know and I'll show you how to set up VS Code with Quarto.
+
+#### 1. Install newest version of R Studio (Important!)
+
+-   In R Studio go to `Help -> Check for Updates` and follow the instructions to download and install the newest version of R Studio
+-   The newest version of R Studio already comes with Quarto (which we need). To make sure everything worked correctly, open the up-to-date R Studio and create a new Quarto document. Go to `File -> New File -> Quarto Document` :
+
+![](images/new_quarto_doc.png)
+
+In the window that opens, just click `Create`. Now a file should have opened that looks something like this:
+
+![](images/new_quarto_doc2.png)
+
+Save this file somewhere and then click on the `Render` button with the blue arrow on top. Now the document should render and open either in the Browser or in the `Viewer` window of R Studio.
+
+If you get any problems in this step, please let me know and we'll figure it out together.
+
+#### 2. install necessary packages
+
+I will use the following packages: rmarkdown, quarto, tidyverse, usethis, palmerpenguins
+
+If you want to install them, you can use the following R code:
+
+``` r
+pkgs <- c("tidyverse", "quarto", "rmarkdown", "usethis", "palmerpenguins")
+
+# only install the packages you don't have yet
+install.packages(setdiff(pkgs, rownames(installed.packages())))
+```
+
+#### 3. install Latex for pdf output
+
+To generate pdf documents from R Markdown and Quarto, you need LaTex.
+
+**If you don't have LaTex on your machine read here:**
+
+If you don't have LaTex, you can install TinyTex as a lightweight, portable LaTex distribution. You can run the following code in R to install it:
+
+``` r
+install.packages('tinytex')
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+**If you have LaTex on your machine read here:**
+
+Please check if Quarto can find you LaTex. Go back to the test document from step 1. On top, replace `format: html` with `format: pdf`. Then click on the `Render` button again and a pdf should be created. It that does not work, read the error message and try to fix it. You could also consider using TinyTex as described above. If you can't figure out the problem, please let me know and I'll try to help.
+
+#### 4. basics for publishing
+
+If you don't plan on publishing any website/document/presentation, you can also ignore this step. But I think it's useful (and fun) to try it. Below you find two options that are both free of charge. I personally prefer Github pages, however you need to have a minimum familiarity with Git and Github. Choose which options fits you best. You can also prepare both of them to compare.
+
+**a) Publish with quartopub.com**
+
+-   Nice if you have no idea what Git or Github is
+-   Easily publish quarto documents, websites and presentations with one command
+-   Provided by R Studio
+
+Requires an account that you can make [here](https://quartopub.com/sign-up)
+
+**b) Publish via Github pages**
+
+-   Nice if you use Git/Github or have an idea what it's about
+-   Every Github Repository can come with an optional *Github page*.
+-   The workflow is straight forward but it needs a workflow that is set up correctly
+-   Requirements are:
+    -   Git installed (see [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+    -   Github account (You can make one [here](https://github.com/signup))
+    -   Connection between R Studio and Github via personal access token (see guide below)
+
+#### *Short guide on creating a personal access token (PAT) on Github for R Studio*
+
+Use functions from the usethis package to generate a PAT:
+
+-   Open R Studio and run: `usethis::create_github_token()`. This will open Github in the right location.
+-   Sign into your Github account and you will see the token that will be generated.
+-   Give your token a descriptive note on top (e.g. `R Studio on my work laptop`)
+-   Scroll down (just leave all default checkmarks) and click on `Generate token`
+-   From the list of tokens now copy the token you just created to the clipboard
+-   Switch back to R Studio and call `gitcreds::gitcreds_set()`
+-   Now you have to follow the instructions in the console. If you don't have a PAT yet, you are asked to paste your newly created PAT into the console.
+-   Check if everything worked **after restarting R** with `usethis::gh_token_help()`.
+
+If this does not return an error or something strange you should be all set 🎉

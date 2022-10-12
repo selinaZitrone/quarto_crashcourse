@@ -1,5 +1,57 @@
 ---
 title: "Websites with Quarto"
-format: revealjs
-editor: visual
+subtitle: "A crashcourse on reproducible documents, presentations and websites"
+format: 
+  revealjs:
+    footer: "Selina Baldauf - Theoretical Ecology"
+    highlight-style: printing
+    mainfont: Cabinet Grotesk
+    slide-number: true
+    show-slide-number: all
+    incremental: true
+    code-line-numbers: false
+editor: source
+execute: 
+  echo: false
+  eval: true
 ---
+
+## Websites
+
+- A website can be used to publish a group of `.qmd` documents togehter
+- A website is a project and contains a configuration file `_quarto.yml`
+
+## The configuration file
+
+``` yaml
+project:
+  type: website
+
+website:
+  title: "mysite"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+## Resources
+
+- [A guide to create Websites](https://quarto.org/docs/websites/)
+- See this [Reference guide](https://quarto.org/docs/reference/projects/websites.html) to find all the options
+
+## Example websites with code
+
+- [Ggplot Workshop website] by Cédric Scherer 
+  - Code available [here](https://github.com/rstudio-conf-2022/ggplot2-graphic-design)
+- [Quarto website](quarto.org/) 
+  - Code available [here](https://github.com/quarto-dev/quarto-web/)
+- More example in the [Quarto Gallery](https://quarto.org/docs/gallery/)

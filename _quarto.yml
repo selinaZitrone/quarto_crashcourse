@@ -1,19 +1,62 @@
 project:
   type: website
+  render: 
+    - "*.qmd"
+    - "!R"
 
 website:
-  title: "quarto_crashcourse"
+  title: "Quarto crashcourse"
+  description: "A short introduction to Quarto documents, presentations and websites"
+  page-navigation: true
+  favicon: "/images/quarto.png"
+  repo-url: https://github.com/selinaZitrone/quarto_crashcourse
+  repo-actions: [edit, issue]
   navbar:
+    background: "#FFEDC2"
+    logo: "images/quarto.png"
+    pinned: true
+    right:
+      - text: Course preparation
+        href: preparations.qmd
+      - text: Downloads
+        menu: 
+          - text: Example project
+          - text: Slides
+      - icon: github
+        href: https://github.com/selinaZitrone/quarto_crashcourse
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Slides
+        menu: 
+          - text: Intro to Quarto
+            href: presentations/1_intro_quarto.qmd
+          - text: Presentations with Quarto
+            href: presentations/1_presentations.qmd
+          - text: Websites with Quarto
+            href: presentations/3_websites.qmd
+          - text: Publishing Quarto
+            href: presentations/4_publishing.qmd
+      - text: How tos
+        menu: 
+          - text: Quarto documents
+            href: how_to/1_documents.qmd
+          - text: Quarto presentations
+            href: how_to/2_presentations.qmd
+          - text: Quarto websites
+            href: how_to/3_websites.qmd
+          - text: Publishing
+            href: how_to/4_publishing
+        
+  page-footer:
+    background: "#FFEDC2"
+    left: "Page is build with [Quarto](https://quarto.org) by Selina Baldauf (2022), 
+            Page design inspired by [Cédric Scherer](https://rstudio-conf-2022.github.io/ggplot2-graphic-design/)"
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-editor: visual
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Cabinet Grotesk"
 

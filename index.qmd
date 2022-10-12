@@ -1,11 +1,30 @@
 ---
-title: "quarto_crashcourse"
+title: "An afternoon with Quarto"
 ---
 
-This is a Quarto website.
+## Course overview
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+We will cover the following topics in this crash course:
 
-```{r}
-1 + 1
-```
+-   An introduction to Quarto: What is it and why is it useful?
+
+-   Reproducible documents with Quarto for different output formats
+
+-   Creating presentations with Quarto
+
+-   Creating Websites with Quarto
+
+-   Publishing documents, presentations and websites
+
+## Additional resources
+
+To continue learning, I recommend, checking out the following resources:
+
+-   [Official Quarto website](https://quarto.org/): has everything: downloads, get started guides, gallery, references, …
+
+- [Quarto introduction workshop](https://www.youtube.com/watch?v=yvi5uXQMvu4) on Youtube
+
+## Preparation
+
+To follow the whole course, you need to do [some preparation work](preparations.qmd).
+
