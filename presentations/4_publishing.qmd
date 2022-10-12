@@ -127,6 +127,25 @@ knitr::include_graphics("images/4_publish/github_pages_docs.jpg")
 - Github actions can be defined to run every time you push something
 - Trigger Github action to render and publish your website to github pages.
 
-**Step 1: Add `_site` to `.gitignore`**
+**Step 1: Freeze Computations**
+
+- Freeze code execution -> Will only be executed locally
+- Add the following to `_quarto.yml`
+
+``` yaml
+execute:
+  freeze: auto
+```
+
+## Option 2: Use github actions
+
+**Step 2: Re-render the site**
+
+- Now you should get a `_freeze` directory
+
+**Step 3: Add a github action**
+
+- Create a directory `.github`
+- Add `publish.yml` from [here](https://quarto.org/docs/publishing/github-pages.html#github-action)
 
 

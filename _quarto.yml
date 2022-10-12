@@ -59,4 +59,7 @@ format:
     code-copy: true
     code-overflow: wrap
     mainfont: "Cabinet Grotesk"
+    
+execute: 
+  freeze: auto
 
